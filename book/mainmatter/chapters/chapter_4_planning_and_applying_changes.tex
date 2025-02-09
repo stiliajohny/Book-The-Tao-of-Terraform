@@ -1,0 +1,107 @@
+\chapter{Planning and Applying Changes}
+\sloppy
+
+\section{The \texttt{terraform plan} Command}
+
+One of the core concepts in Terraform is the ability to plan and review changes before they are applied to the infrastructure. The \texttt{terraform plan} command is used to create an execution plan that shows you what actions Terraform will take to bring your infrastructure in line with the desired state defined in your configuration files.
+
+\subsection{Understanding the Plan Output}
+
+When you run \texttt{terraform plan}, Terraform compares the current state of your infrastructure (as recorded in the state file) with the desired state defined in your configuration. It then outputs the changes that will be made. Here's an example of a typical output:
+% Adding a new line for better readability
+
+\begin{lstlisting}[language=bash]
+Terraform will perform the following actions:
+
+  + aws_instance.example
+      id:                       <computed>
+      ami:                      "ami-0c55b159cbfafe1f0"
+      instance_type:            "t2.micro"
+      security_groups.#:       "1"
+      security_groups.0:       "default"
+      subnet_id:                "subnet-0bb1c79de3EXAMPLE"
+      private_ip:               <computed>
+      public_ip:                <computed>
+      tags.%:                   "1"
+      tags.Name:                "Web Server"
+\end{lstlisting}
+
+The output shows the resources that will be created, updated, or destroyed. The plus sign (\(+\)) indicates a new resource will be created. If there were a minus sign (\(-\)), it would indicate a resource would be destroyed.
+
+\subsection{Dry Run}
+
+Running \texttt{terraform plan} is a safe "dry run" of the changes Terraform will make. It does not actually modify your infrastructure but gives you an opportunity to review the changes and ensure that they align with your expectations. If something looks incorrect, you can adjust your configuration before applying the changes.
+
+\section{The \texttt{terraform apply} Command}
+
+After reviewing the plan and ensuring that the proposed changes are correct, the next step is to apply them. The \texttt{terraform apply} command is used to apply the changes described in the execution plan to your infrastructure.
+
+\subsection{Applying Changes Safely}
+
+Before executing \texttt{terraform plan} or \texttt{terraform apply}, you'll typically be prompted with a summary of the changes that will be made. To proceed, you type \texttt{yes}, confirming that you want Terraform to apply the changes. Here's an example:
+
+\begin{lstlisting}[language=bash]
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+  Enter a value: yes
+\end{lstlisting}
+
+Once you approve, Terraform will begin creating, modifying, or deleting resources as defined in your configuration.
+
+\subsection{Automating \texttt{apply} in CI/CD Pipelines}
+
+In automated workflows, such as continuous integration/continuous deployment (CI/CD) pipelines, you can use the \texttt{-auto-approve} flag to skip the interactive approval and automatically apply changes:
+
+\begin{lstlisting}[language=bash]
+terraform apply -auto-approve
+\end{lstlisting}
+
+While this is convenient for automated pipelines, it's important to use it cautiously, as it skips the safety check of user confirmation.
+
+\section{What Happens Behind the Scenes?}
+
+When you run \texttt{terraform apply}, Terraform performs the following steps:
+
+\begin{itemize}
+  \item \textbf{Reads the Configuration:} Terraform reads your configuration files to understand the desired infrastructure state.
+  \item \textbf{Compares State:} It compares the current state (from the state file) with the desired state (from the configuration).
+  \item \textbf{Creates an Execution Plan:} Based on the comparison, Terraform generates an execution plan that outlines the necessary actions (create, modify, delete).
+  \item \textbf{Applies Changes:} Terraform communicates with the appropriate provider API (e.g., AWS, Azure) to perform the actions defined in the plan, ensuring that the infrastructure matches the desired state.
+  \item \textbf{Updates State:} Once changes are applied, Terraform updates the state file to reflect the new infrastructure state.
+\end{itemize}
+
+\section{Using the \texttt{terraform destroy} Command}
+
+If you want to tear down your infrastructure and remove all the resources that Terraform has created, you can use the \texttt{terraform destroy} command. This command removes all the resources defined in your Terraform configuration.
+
+\begin{lstlisting}[language=bash]
+terraform destroy
+\end{lstlisting}
+
+You'll be prompted to confirm the destruction of your resources, similar to \texttt{terraform apply}, to prevent accidental deletions.
+
+\section{Working with Multiple Environments}
+
+In practice, you often need to manage different environments (e.g., development, staging, production). Terraform allows you to work with different configurations for each environment, and the use of workspaces can help organize and separate the state for each environment.
+
+\subsection{Using Workspaces}
+
+A workspace is an isolated instance of the Terraform state. You can create, select, and manage workspaces with the following commands:
+
+\begin{lstlisting}[language=bash]
+terraform workspace new dev
+terraform workspace select dev
+\end{lstlisting}
+
+Each workspace will have its own state file, allowing you to manage different environments without interference.
+
+\section{Wrapping Up}
+
+The \texttt{terraform plan} and \texttt{terraform apply} commands are fundamental to the Terraform workflow. \texttt{terraform plan} allows you to preview changes before applying them, ensuring that your infrastructure remains in the desired state. \texttt{terraform apply} then executes the changes in a safe and predictable manner. Understanding and utilizing these commands effectively is key to managing your infrastructure efficiently and safely.
+
+\vspace{1em}
+
+\textit{In the next chapter, we'll explore managing Terraform state files. Let's go.}

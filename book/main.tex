@@ -1,0 +1,73 @@
+\documentclass[12pt,openany]{book}
+% Set Times New Roman as the main font using the newtxtext and newtxmath packages
+\usepackage{newtxtext,newtxmath}
+
+% Include packages and styles
+\input{styles/preamble}
+
+% Ensure proper PDF settings for KDP
+\pdfminorversion=7  % PDF version 1.7 (recommended for KDP)
+\pdfobjcompresslevel=0  % Disable compression for better compatibility
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRONT MATTER
+% Contains all preliminary material including title, copyright, dedication etc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\include{frontmatter/half_title}     % Half title page
+\include{frontmatter/title}          % Main title page
+\include{frontmatter/copyright}      % Copyright information
+\include{frontmatter/dedication}     % Book dedication
+\include{frontmatter/preface}        % Author's preface
+\include{frontmatter/contributors}
+\include{frontmatter/puzzle}         % Easter egg puzzle
+% \include{frontmatter/prologue}       % Opening narrative
+
+% Add Table of Contents
+\cleardoublepage
+\tableofcontents
+\clearpage
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % MAIN MATTER
+% % Contains the primary content of the book - all chapters
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\include{mainmatter/chapters/chapter_1_introduction}
+\include{mainmatter/chapters/chapter_2_getting_started_with_terraform}
+\include{mainmatter/chapters/chapter_3_terraform_configuration}
+\include{mainmatter/chapters/chapter_4_planning_and_applying_changes}
+\include{mainmatter/chapters/chapter_5_managing_state}
+\include{mainmatter/chapters/chapter_6_organizing_terraform_configurations}
+\include{mainmatter/chapters/chapter_7_collaboration_and_version_control}
+\include{mainmatter/chapters/chapter_8_secrets_management_and_security}
+\include{mainmatter/chapters/chapter_9_testing_and_validation}
+\include{mainmatter/chapters/chapter_10_scaling_infrastructure_with_terraform}
+\include{mainmatter/chapters/chapter_11_debugging_and_troubleshooting}
+\include{mainmatter/chapters/chapter_12_advanced_terraform_functions_and_features}
+\include{mainmatter/chapters/chapter_13_the_path_forward}
+\include{mainmatter/chapters/chapter_14_reflections_on_terraform_impact}
+\include{mainmatter/chapters/chapter_15_conclusion}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % BACK MATTER
+% % Contains supplementary material including bibliography and author bio
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+% Bibliography settings
+\cleardoublepage
+{
+    \renewcommand{\bibname}{Bibliography}
+    \nocite{*}
+    \bibliographystyle{plain}
+    \bibliography{backmatter/bibliography}
+}
+
+% Include Author Biography
+\include{backmatter/author_bio}
+
+\end{document}
