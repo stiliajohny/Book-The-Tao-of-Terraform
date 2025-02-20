@@ -35,49 +35,45 @@ Here's an example snippet from a state file:
 
 In this case, the state file tracks an AWS EC2 instance with the ID \texttt{i-1234567890abcdef0}.
 
-\section{Remote Backends for State}
+\section{Backends}
 
-For better collaboration, consistency, and security, it is highly recommended to store Terraform state files in a remote backend. By default, Terraform stores state locally in the current directory, but when working in teams, it's better to store the state remotely.
+Backends in Terraform are essential for storing the state file, which is crucial for managing your infrastructure. They enable collaboration and ensure that the state file is centralized. Backends can be local or remote, with remote backends offering additional features like state locking and enhanced security.
 
-\subsection{Why Use Remote Backends?}
+\subsection{Types of Backends}
 
-Remote backends ensure that the state file is centralized, allowing multiple users to collaborate on the same infrastructure. It also provides state locking to prevent concurrent updates to the same infrastructure, ensuring consistency. Some common remote backends include Amazon S3, Azure Blob Storage, and HashiCorp Consul.
+\textbf{Local Backend}: Stores the state file on the local disk. Suitable for small projects or individual use.
 
-To configure a remote backend, specify the backend configuration in your Terraform configuration file. For example, to use Amazon S3 as a remote backend, you would add the following configuration:
+\textbf{Remote Backends}: Store the state file in a remote location, allowing for collaboration and state locking. Examples include Amazon S3 and Azure Blob Storage.
+
+\subsection{Configuring a Local Backend}
+
+By default, Terraform uses a local backend, storing the state file in the current working directory. Here's a simple example:
 
 \begin{lstlisting}[language=terraform]
 terraform {
-  backend "s3" {
-    bucket = "my-terraform-state"
-    key    = "global/s3/terraform.tfstate"
-    region = "us-east-1"
+  backend "local" {
+    path = "terraform.tfstate"
   }
 }
 \end{lstlisting}
 
-\subsection{Initializing the Backend}
+\subsection{Why Use Remote Backends?}
 
-After configuring the backend, you need to initialize it using the \texttt{terraform init} command. This command configures Terraform to use the remote backend, migrating the local state to the remote storage if applicable.
-
-\begin{lstlisting}[language=bash]
-terraform init
-\end{lstlisting}
+Remote backends centralize the state file, enabling collaboration and state locking. More detailed information about configuring and using remote backends can be found in Chapter 6.
 
 \section{State Locking}
 
-State locking is a mechanism that prevents multiple Terraform processes from modifying the state file simultaneously. This is crucial in a multi-user environment where two people might try to apply changes to the same infrastructure at the same time. State locking ensures that only one operation can be performed on the state at any given time.
-
-When using remote backends like Amazon S3 or HashiCorp Consul, Terraform automatically handles state locking. This process prevents race conditions and ensures that Terraform can safely manage the state.
+State locking prevents multiple Terraform processes from modifying the state file simultaneously, ensuring consistency in a multi-user environment. Remote backends like Amazon S3 automatically handle state locking, preventing race conditions.
 
 \subsection{State Locking in Practice}
 
-With state locking enabled, if one user starts running \texttt{terraform apply}, Terraform will lock the state. If another user tries to run \texttt{terraform apply} simultaneously, they will receive an error indicating that the state is locked:
+With state locking, if one user runs \texttt{terraform apply}, Terraform locks the state. Another user attempting the same will receive an error indicating the state is locked:
 
 \begin{lstlisting}[language=bash]
 Error: Error locking state: Error acquiring the state lock: ConditionalCheckFailedException: The conditional request failed
 \end{lstlisting}
 
-The user who first acquires the lock will be able to proceed with the operation, while the other will need to wait until the lock is released.
+The first user to acquire the lock can proceed, while others must wait for the lock to be released.
 
 \section{Managing State with \texttt{terraform state}}
 
