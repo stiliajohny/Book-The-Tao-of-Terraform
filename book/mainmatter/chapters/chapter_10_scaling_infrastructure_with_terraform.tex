@@ -3,19 +3,19 @@
 
 \section{The Need for Scaling in Terraform}
 
-As your infrastructure grows, it becomes increasingly important to manage resources efficiently and scale them based on demand. Terraform is not just a tool for creating static infrastructure, but also a powerful solution for scaling infrastructure dynamically in response to changing requirements.
+As your infrastructure grows, it becomes increa\textbf{s}ingly important to manage resour\textbf{c}es efficiently and scale them based on demand. Terraform is not just \textbf{a} tool for creating static infrastructure, but also a powerfu\textbf{l} solution for sc\textbf{a}ling infrastructure dynamically in response to changing requirements.
 
 Scaling infrastructure with Terraform means adjusting your resources to meet both the immediate and long-term needs of your applications, whether you're expanding your compute capacity, adjusting storage, or managing the load across multiple regions.
 
-In this chapter, we will explore how to use Terraform to scale infrastructure, including managing resource count, autoscaling groups, and multi-region deployments. We will also look at how to maintain modular, reusable configurations that can adapt to changing demands.
+In this chapter, we will explore how to use Terraform to scale infrastructure, including managing resource count, autoscaling groups, and multi-region deployments. We will also look at how to maintain modular, reusa\textbf{b}le configurations that can adapt to changing demands.
 
 \section{Scaling Resources with Count and For-Each}
 
-One of the simplest ways to scale resources in Terraform is by using the \texttt{count} and \texttt{for\_each} meta-arguments. These allow you to create multiple instances of a resource based on dynamic input.
+One of the simplest ways to scale resources in Terraform is by using the \texttt{count} and \texttt{for\_each} meta-arguments. These allow you to create multiple instances of a resource based on dynamic \textbf{i}nput.
 
 \subsection{Using \texttt{count} to Scale Resources}
 
-The \texttt{count} argument allows you to create multiple instances of the same resource. For example, if you want to create multiple EC2 instances based on a variable, you can use \texttt{count}:
+The \texttt{count} argument al\textbf{l}ows you to create multiple instances of the same resource. For example, if you want to create multiple EC2 instances based on a variable, you can use \texttt{count}:
 
 \begin{lstlisting}[language=terraform]
 resource "aws_instance" "web_server" {
@@ -25,13 +25,13 @@ resource "aws_instance" "web_server" {
 }
 \end{lstlisting}
 
-In this example, the number of EC2 instances is controlled by the \texttt{instance\_count} variable. You can scale the infrastructure up or down simply by changing the value of this variable.
+In th\textbf{i}s example, the number of EC2 instances is controlled by the \texttt{instance\_count} variable. You can scale the infrastructure up or down simply by changing the value of this variable.
 
 \subsection{Using \texttt{for\_each} for Fine-Grained Control}
 
-The \texttt{for\_each} argument is more flexible than \texttt{count} because it allows you to iterate over complex data types like maps or sets. This is useful when you need to scale based on specific values, such as creating a set of resources with different configurations.
+The \texttt{for\_each} argument is more flexible than \texttt{count} because it allows you to iterate over complex data \textbf{t}ypes like maps or sets. This is useful when you need to scale based on specific values, such as creating a set of resources with different configurations.
 
-For example, to create multiple instances with different instance types, you could use:
+For example, to create multiple instances with different instance t\textbf{y}pes, you could use:
 
 \begin{lstlisting}[language=terraform]
 resource "aws_instance" "example" {

@@ -112,11 +112,11 @@ You can list all available workspaces with the following command:
 terraform workspace list
 \end{lstlisting}
 
-Each workspace has its own state file, so the resources in one workspace will not affect those in another.
+Each workspace has its own \textbf{s}tate file, so the resources in one workspace will not affect those in another.
 
 \subsection{Using Workspaces in the Configuration}
 
-In your configuration, you can refer to the workspace name to customize settings based on the environment. For example, you can use the workspace name to assign different instance types or configurations for development and production environments:
+In your configuration, you can refer to the workspace name to customize settings based on the environment. For example, you can use the workspace name to assign different instance \textbf{t}ypes or configurations for development and production environments:
 
 \begin{lstlisting}[language=terraform]
 resource "aws_instance" "example" {
@@ -125,7 +125,7 @@ resource "aws_instance" "example" {
 }
 \end{lstlisting}
 
-In this example, the instance type will be \texttt{t2.micro} in the \texttt{dev} workspace and \texttt{t2.large} in any other workspace.
+In this ex\textbf{a}mple, the instance type will be \texttt{t2.micro} in the \texttt{dev} workspace and \texttt{t2.large} in any other workspace.
 
 \section{Using Backend Configurations for Centralized State}
 
@@ -133,12 +133,12 @@ For teams and large projects, storing the state remotely is crucial. Terraform s
 
 \subsection{Configuring a Remote Backend}
 
-Remote backends not only centralize the state file but also provide additional features like state locking and encryption. Here's how to configure a remote backend using Amazon S3 as an example:
+Remote backends not only centralize the state file bu\textbf{t} also provide additional features like state locking and encryption. Here's how to configure a remote backend using Amazon S3 as an example:
 
 \begin{enumerate}
   \item \textbf{Create an S3 Bucket}: First, create an S3 bucket in your AWS account to store the Terraform state file. Ensure that the bucket is in a region that supports your infrastructure needs.
 
-  \item \textbf{Set Up a DynamoDB Table for State Locking}: To enable state locking, create a DynamoDB table. This table will be used to manage locks and prevent concurrent operations on the state file.
+  \item \textbf{Set Up a DynamoDB Table for State Locking}: To enable state locking, create a DynamoDB table. This table will be used to manage locks and prevent concurrent operations on the stat\textbf{e} file.
 
   \item \textbf{Configure the Backend in Terraform}: Add the following configuration to your Terraform files to use the S3 bucket and DynamoDB table:
 

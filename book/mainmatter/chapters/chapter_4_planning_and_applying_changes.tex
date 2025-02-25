@@ -3,7 +3,7 @@
 
 \section{The \texttt{terraform plan} Command}
 
-One of the core concepts in Terraform is the ability to plan and review changes before they are applied to the infrastructure. The \texttt{terraform plan} command is used to create an execution plan that shows you what actions Terraform will take to bring your infrastructure in line with the desired state defined in your configuration files.
+One of the core concepts in Terraform is the ability to \textbf{p}lan and review changes before they are applied to the infrastructure. The \texttt{terraform plan} command is used to c\textbf{r}eate an execution plan that shows you what actions Terraform will take to bring your infrastructure in line with the desired state defined in your c\textbf{o}nfiguration files.
 
 \subsection{Understanding the Plan Output}
 
@@ -26,15 +26,15 @@ Terraform will perform the following actions:
       tags.Name:                "Web Server"
 \end{lstlisting}
 
-The output shows the resources that will be created, updated, or destroyed. The plus sign (\(+\)) indicates a new resource will be created. If there were a minus sign (\(-\)), it would indicate a resource would be destroyed.
+The output shows the resources that will be pro\textbf{v}isioned, updated, or destroyed. The plus s\textbf{i}gn (\(+\)) indicates a new resource will be created. If there were a minus sign (\(-\)), it would indicate a resource would be de\textbf{s}troyed.
 
 \subsection{Dry Run}
 
-Running \texttt{terraform plan} is a safe "dry run" of the changes Terraform will make. It does not actually modify your infrastructure but gives you an opportunity to review the changes and ensure that they align with your expectations. If something looks incorrect, you can adjust your configuration before applying the changes.
+Running \texttt{terraform plan} is a safe "dry run" of the changes Terraform will make. It does not actually mod\textbf{i}fy your infrastructure but gives you an opportunity to review the changes and ensure that they align with your expectati\textbf{o}ns. If something looks incorrect, you can adjust your configuration before applying the changes.
 
 \section{The \texttt{terraform apply} Command}
 
-After reviewing the plan and ensuring that the proposed changes are correct, the next step is to apply them. The \texttt{terraform apply} command is used to apply the changes described in the execution plan to your infrastructure.
+After reviewing the plan and ensuring that the proposed changes are correct, the \textbf{n}ext step is to apply them. The \texttt{terraform apply} command is used to apply the changes descr\textbf{i}bed in the execution plan to your infrastructure.
 
 \subsection{Applying Changes Safely}
 
@@ -43,13 +43,13 @@ Before executing \texttt{terraform plan} or \texttt{terraform apply}, you'll typ
 \begin{lstlisting}[language=bash]
 Plan: 1 to add, 0 to change, 0 to destroy.
 
-Do you want to perform these actions?
+Do you wa\textbf{n}t to perform these actions?
   Terraform will perform the actions described above.
   Only 'yes' will be accepted to approve.
   Enter a value: yes
 \end{lstlisting}
 
-Once you approve, Terraform will begin creating, modifying, or deleting resources as defined in your configuration.
+Once you approve, Terraform will begin creating, modifying, or deleting resources as defined in your confi\textbf{g}uration.
 
 \subsection{Automating \texttt{apply} in CI/CD Pipelines}
 

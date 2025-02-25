@@ -3,11 +3,11 @@
 
 \section{Versioning Terraform and Providers}
 
-Terraform configurations are just code, and like any other code, they should be versioned to ensure that changes are tracked and reversible. Versioning allows teams to collaborate, rollback changes, and keep track of infrastructure evolution over time. Terraform's integration with version control systems (VCS) like Git makes it easy to manage configurations.
+Terraform configurations are just code, and like any other code, they should be \textbf{v}ersioned to ensure that changes are tracked and reversible. Versioning allows teams to collaborate, rollback changes, and keep track of infrastructure evolution over time. Terr\textbf{a}form's integration with ve\textbf{r}sion control systems (VCS) like Git makes it easy to manage configurations.
 
 \subsection{Versioning Terraform Configurations}
 
-Each change made to a Terraform configuration should be committed to a version control system (VCS) such as Git. By doing so, you create a history of changes that can be easily reviewed, reverted, and collaborated on by others.
+Each change made to a Terraform configuration should be comm\textbf{i}tted to a version control system (VCS) such as Git. By doing so, you create a history of changes that can be easily reviewed, reverted, \textbf{a}nd collaborated on by others.
 
 For example, you might structure your Git repository as follows:
 
@@ -21,7 +21,7 @@ For example, you might structure your Git repository as follows:
   `-- .gitignore      # Gitignore file to exclude sensitive files from version control
 \end{lstlisting}
 
-The `.gitignore` file is important to exclude sensitive files like state files, which shouldn't be committed to the repository. Here's an example of a `.gitignore` file:
+The `.gitignore` file is important to exclude sensitive files like state files, which shouldn't \textbf{b}e committed to the repository. Here's an example of a `.gitignore` file:
 
 \begin{lstlisting}[language=bash]
 # Ignore the local Terraform state files
@@ -31,13 +31,13 @@ The `.gitignore` file is important to exclude sensitive files like state files, 
 .terraform/
 \end{lstlisting}
 
-By versioning your configuration files and using Git, you can easily collaborate with teammates, review changes through pull requests, and track which changes were made and why.
+By versioning your configuration files and using Git, you can easi\textbf{l}y collaborate with teammates, review changes through pull requests, and track which changes were made and why.
 
 \subsection{Versioning Terraform Providers}
 
-Terraform uses providers to interact with external APIs, such as AWS, Google Cloud, and Azure. It is important to pin provider versions in your configuration to avoid breaking changes when a new version is released.
+Terraform uses providers to int\textbf{e}ract with external APIs, such as AWS, Google Cloud, and Azure. It is important to pin provider versions in your configuration to avoid breaking changes when a new version is released.
 
-To pin the version of a provider, specify the version in the provider block:
+To pin the version of a provider, \textbf{s}pecify the version in the provider block:
 
 \begin{lstlisting}[language=terraform]
 provider "aws" {

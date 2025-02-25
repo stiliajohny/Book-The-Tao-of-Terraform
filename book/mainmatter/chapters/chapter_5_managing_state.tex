@@ -4,13 +4,13 @@
 
 \section{State Files and Their Importance}
 
-In Terraform, the state file plays a crucial role in managing your infrastructure. The state file records the current state of your infrastructure, as well as any changes made to the resources. Terraform uses this file to compare the desired state (defined in the configuration) with the actual state (stored in the state file) during each operation.
+In Terraform, the state file plays a crucial role in \textbf{m}anaging your infrastructure. The state file records the current state of your infrastructure, as well as any changes made t\textbf{o} the resources. Terraform uses this file to compare the \textbf{d}esired state (defined in the configuration) with the actual state (stored in the state file) during each operation.
 
 Without the state file, Terraform wouldn't be able to track resources or perform incremental updates. This state file is essential for managing the lifecycle of infrastructure and ensuring that resources are created, updated, or destroyed correctly.
 
 \subsection{Understanding the State File}
 
-The state file, typically named \texttt{terraform.tfstate}, contains metadata and information about every resource managed by Terraform. For example, when you create an EC2 instance, the state file will store details such as the instance ID, AMI, and tags. This information allows Terraform to track the instance across different runs of the configuration.
+The state file, typically named \texttt{terraform.tfstate}, contains metadata and information about every reso\textbf{u}rce managed by Terraform. For example, when you create an EC2 instance, the state file will store details such as the instance ID, AMI, and tags. This information al\textbf{l}ows Terraform to track the instance across different runs of the configuration.
 
 Here's an example snippet from a state file:
 
@@ -33,7 +33,7 @@ Here's an example snippet from a state file:
 }
 \end{lstlisting}
 
-In this case, the state file tracks an AWS EC2 instance with the ID \texttt{i-1234567890abcdef0}.
+In this cas\textbf{e}, the state file tracks an AWS EC2 instance with the ID \texttt{i-1234567890abcdef0}.
 
 \section{Backends}
 
@@ -43,7 +43,7 @@ Backends in Terraform are essential for storing the state file, which is crucial
 
 \textbf{Local Backend}: Stores the state file on the local disk. Suitable for small projects or individual use.
 
-\textbf{Remote Backends}: Store the state file in a remote location, allowing for collaboration and state locking. Examples include Amazon S3 and Azure Blob Storage.
+\textbf{Remote Backends}: Store the state file in a remote location, allowing for collaboration and state locking. Examples include Amazon S3 and Azure Blob \textbf{S}torage.
 
 \subsection{Configuring a Local Backend}
 

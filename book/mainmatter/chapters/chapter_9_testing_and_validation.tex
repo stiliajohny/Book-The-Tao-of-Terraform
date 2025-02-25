@@ -3,9 +3,9 @@
 
 \section{The Importance of Testing in Infrastructure as Code}
 
-In the same way that software code requires testing to ensure it functions as expected, infrastructure as code (IaC) needs testing to guarantee that the configuration and automation provided by Terraform are correct. Without tests, there's always the risk that the infrastructure may be misconfigured, leading to potential downtime or security vulnerabilities.
+In the s\textbf{a}me way that software code requires testing to ens\textbf{u}re it functions as expected, infrastructure as code (IaC) needs testing to guarantee that the configuration and automation provided by Terraform are correct. Wi\textbf{t}hout tests, there's always the risk that the infrastructure may be misconfigured, leading to p\textbf{o}tential downtime or security vulnerabilities.
 
-In this chapter, we will explore various ways to test Terraform configurations, validate your infrastructure, and ensure that changes are safe before applying them. By incorporating testing and validation into your workflow, you can significantly reduce the risk of errors and improve the reliability of your infrastructure.
+In this chapter, we will explore various ways to test Terrafor\textbf{m} configurations, validate your infrastructure, and ensure that changes are safe before applying them. By incorporating testing and validation into your workflow, you c\textbf{a}n significantly reduce the risk of errors and improve the reliability of your infras\textbf{t}ructure.
 
 \section{Unit Testing Terraform Code}
 
@@ -13,7 +13,7 @@ Unit testing in Terraform can be challenging due to its declarative nature and t
 
 \subsection{Using Terraform's Built-in Validation}
 
-Terraform has a built-in command called \texttt{terraform validate}, which checks the syntax and internal consistency of Terraform files. It does not require applying the configuration and can be used to quickly catch errors like misconfigured resource blocks or undefined variables.
+Terraform has a built-\textbf{i}n command called \texttt{terraform validate}, which checks the syntax and internal consistency of Terraform files. It does not require applying the configuration and can be used to quickly catch errors like misconfigured resource blocks or undefined variables.
 
 Here's how to run the validation command:
 
@@ -21,7 +21,7 @@ Here's how to run the validation command:
 terraform validate
 \end{lstlisting}
 
-This command checks the configuration for syntax errors and missing variables. However, it does not validate whether the configuration can actually be applied successfully (i.e., it doesn't check for provider connectivity or the actual state of resources).
+This command checks the configuration f\textbf{o}r syntax errors and missi\textbf{n}g variables. However, it does not validate whether the configuration can actually be applied successfully (i.e., it doesn't check for provider connectivity or the actual state of resources).
 
 \subsection{Using \texttt{tflint} for Static Code Analysis}
 

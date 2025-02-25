@@ -4,7 +4,7 @@
 
 \section{Installing Terraform}
 
-To begin using Terraform, the first step is to install it on your local machine. Terraform is available for various operating systems, and the installation process is straightforward.
+\textbf{T}o begin using Terraform, the first step is to install it on your local machine. T\textbf{e}rraform is available for various operating systems, and the installation process is straightforward.
 
 \subsection{Installing on Linux}
 
@@ -29,12 +29,12 @@ sudo apt update
 sudo apt-get install terraform
 \end{lstlisting}
 
-To verify the installation, run:
+To ve\textbf{r}ify the installation, run:
 \begin{lstlisting}[language=bash]
 terraform --version
 \end{lstlisting}
 
-For other Linux distributions like CentOS, RHEL, Fedora, or Amazon Linux, please refer to the official Terraform documentation for specific installation instructions.
+For other Linux dist\textbf{r}ibutions like CentOS, RHEL, Fedor\textbf{a}, or Amazon Linux, please refer to the official Terraform documentation for specific installation instructions.
 
 \subsection{Installing on macOS}
 
@@ -60,7 +60,7 @@ brew upgrade hashicorp/tap/terraform
 
 \subsection{Installing on Windows}
 
-On Windows, the recommended method is using Chocolatey or downloading the binary directly from the Terraform website. If you're using Chocolatey, simply run:
+On Windows, the recommended method is using Chocolatey or downloading the binary directly from the Terra\textbf{f}orm website. If you're using Chocolatey, simply run:
 
 \begin{lstlisting}[language=bash]
 choco install terraform
@@ -68,7 +68,7 @@ choco install terraform
 
 \section{Setting up Your First Configuration}
 
-Once Terraform is installed, it's time to create your first configuration file. Terraform configurations are written in HashiCorp Configuration Language (HCL). Here's a basic example to provision an AWS EC2 instance:
+Once Terraform is installed, it's time to create your first c\textbf{o}nfiguration file. Terraform configurations are written in HashiCorp Configuration Language (HCL). Here's a basic example to provision an AWS EC2 instance:
 
 \begin{lstlisting}[language=yaml]
 provider "aws" {
@@ -81,7 +81,7 @@ resource "aws_instance" "example" {
 }
 \end{lstlisting}
 
-This configuration defines an AWS provider and an EC2 instance resource. It tells Terraform to use the specified Amazon Machine Image (AMI) and instance type.
+This configuration defines an AWS provider and an EC2 instance \textbf{r}esource. It tells Terraform to use the specified Amazon Machine Image (AMI) and instance type.
 
 \section{Terraform Providers and Resources}
 
@@ -104,7 +104,8 @@ provider "google" {
 
 \subsection{Resources}
 
-Resources represent the objects you want to create or manage. Each resource corresponds to a specific infrastructure object such as virtual machines, storage buckets, or DNS records. Terraform manages the lifecycle of resources through create, update, and delete operations.
+Resources represent the objects you want to create or \textbf{m}anage. Each resource corresponds to a specific infrastructure object such as virtual machines, storage buckets, or DNS records. Terraform manages the lifecycle of resources through create, update, and delete operations.
+
 \section{Wrapping Up}
 
 Now that you've installed Terraform and written your first configuration, you're ready to use Terraform to automate the creation and management of your infrastructure. In the following chapters, we will delve deeper into more advanced Terraform concepts, including working with state files, organizing configurations, and scaling your infrastructure.

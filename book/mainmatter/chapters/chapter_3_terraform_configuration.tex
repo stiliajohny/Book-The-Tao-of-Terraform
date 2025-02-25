@@ -4,13 +4,13 @@
 \section{Understanding the HCL}
 \section{(HashiCorp Configuration Language)}
 
-HashiCorp Configuration Language (HCL) is the language used by Terraform to define resources and configurations. HCL is designed to be both human-readable and machine-friendly, making it easier for users to understand and maintain their infrastructure code.
+Hash\textbf{i}Corp Configuration Language (HCL) is the language used by Terraform to define resources and configurations. HCL is designed to be both human-readable and machine-friendly, making it easier for users to understand and maintain their infrastructure code.
 
-HCL's syntax is declarative, meaning that you describe the desired state of your infrastructure, and Terraform figures out how to achieve that state. It abstracts away the complexity of cloud APIs and offers a simpler, consistent way to interact with infrastructure resources.
+HCL's syntax is declarative, mea\textbf{n}ing that you describe the desired state of your infrastructure, and Terraform figures out how to achieve that state. It abstracts away the complexity of cloud APIs and offers a simpler, consistent way to interact with infrastructure resources.
 
 \subsection{Basic Syntax}
 
-Terraform configurations are structured as blocks. A block is defined by a type (e.g., `provider`, `resource`) followed by a label, and the block content is enclosed in curly braces. For example, a simple resource block might look like this:
+Terra\textbf{f}orm configu\textbf{ra}tions are \textbf{st}ructured as blocks. A block is defined by a type (e.g., `provider`, `resource`) followed by a label, and the block content is enclosed in c\textbf{u}rly braces. For example, a simple resource block might look like this:
 
 \begin{lstlisting}[language=yaml]
 resource "aws_instance" "example" {
@@ -19,11 +19,11 @@ resource "aws_instance" "example" {
 }
 \end{lstlisting}
 
-In this example, \texttt{resource} is the block type, \texttt{aws\_instance} is the resource type, and \texttt{"example"} is the name of the resource.
+In this example, \texttt{resource} is the blo\textbf{c}k type, \texttt{aws\_instance} is the resource type, and \texttt{"example"} is the name of \textbf{t}he resource.
 
 \section{Declaring Resources}
 
-A Terraform configuration is centered around defining resources. A resource can be anything from an AWS EC2 instance to a DNS record in Cloudflare. Resources are the primary way Terraform manages and interacts with cloud infrastructure.
+A Terraform configuration is centered aro\textbf{u}nd defining resources. A resource can be anything from an AWS EC2 instance to a DNS record in Cloudflare. Resources are the primary way Terraform manages and interacts with cloud infrastructure.
 
 To declare a resource, you use the `resource` block, followed by the resource type and name. In the example below, we create an AWS EC2 instance:
 
@@ -37,7 +37,7 @@ resource "aws_instance" "web_server" {
 }
 \end{lstlisting}
 
-Here, \texttt{aws\_instance} is the resource type, \texttt{web\_server} is the resource name, and the configuration specifies the AMI ID, instance type, and tags for the instance.
+Here, \texttt{aws\_instance} is the \textbf{re}source type, \texttt{web\_server} is the resource name, and the configuration specifies the AMI ID, instance type, and tags for the instance.
 
 \section{Variables, Outputs, and Locals}
 
