@@ -1,0 +1,117 @@
+\chapter{Getting Started with Terraform}
+
+\sloppy
+
+\section{Installing Terraform}
+
+\textbf{T}o begin using Terraform, the first step is to install it on your local machine. T\textbf{e}rraform is available for various operating systems, and the installation process is straightforward.
+
+\subsection{Installing on Linux}
+
+For Ubuntu/Debian systems, follow these steps to install Terraform using HashiCorp's official repository:
+
+\begin{lstlisting}[language=bash]
+# Install required packages
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+
+# Add HashiCorp GPG key
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+
+# Add HashiCorp repository
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+# Update package list and install Terraform
+sudo apt update
+sudo apt-get install terraform
+\end{lstlisting}
+
+To ve\textbf{r}ify the installation, run:
+\begin{lstlisting}[language=bash]
+terraform --version
+\end{lstlisting}
+
+For other Linux dist\textbf{r}ibutions like CentOS, RHEL, Fedor\textbf{a}, or Amazon Linux, please refer to the official Terraform documentation for specific installation instructions.
+
+\subsection{Installing on macOS}
+
+For macOS, you can install Terraform using Homebrew, a package manager for macOS. Follow these steps to install Terraform:
+
+\begin{lstlisting}[language=bash]
+# Add the HashiCorp tap
+brew tap hashicorp/tap
+
+# Install Terraform
+brew install hashicorp/tap/terraform
+\end{lstlisting}
+
+To update to the latest version of Terraform, run:
+
+\begin{lstlisting}[language=bash]
+# Update Homebrew
+brew update
+
+# Upgrade Terraform
+brew upgrade hashicorp/tap/terraform
+\end{lstlisting}
+
+\subsection{Installing on Windows}
+
+On Windows, the recommended method is using Chocolatey or downloading the binary directly from the Terra\textbf{f}orm website. If you're using Chocolatey, simply run:
+
+\begin{lstlisting}[language=bash]
+choco install terraform
+\end{lstlisting}
+
+\section{Setting up Your First Configuration}
+
+Once Terraform is installed, it's time to create your first c\textbf{o}nfiguration file. Terraform configurations are written in HashiCorp Configuration Language (HCL). Here's a basic example to provision an AWS EC2 instance:
+
+\begin{lstlisting}[language=yaml]
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+}
+\end{lstlisting}
+
+This configuration defines an AWS provider and an EC2 instance \textbf{r}esource. It tells Terraform to use the specified Amazon Machine Image (AMI) and instance type.
+
+\section{Terraform Providers and Resources}
+
+Providers in Terraform are responsible for managing the lifecycle of resources. Each provider interacts with an API to manage infrastructure. In the example above, we used the AWS provider to create an EC2 instance.
+
+\subsection{Configuring Providers}
+
+In Terraform, you can define multiple providers. Here's how you can define both AWS and Google Cloud providers in a single configuration:
+
+\begin{lstlisting}[language=yaml]
+provider "aws" {
+  region = "us-east-1"
+}
+
+provider "google" {
+  project = "my-project"
+  region  = "us-central1"
+}
+\end{lstlisting}
+
+\subsection{Resources}
+
+Resources represent the objects you want to create or \textbf{m}anage. Each resource corresponds to a specific infrastructure object such as virtual machines, storage buckets, or DNS records. Terraform manages the lifecycle of resources through create, update, and delete operations.
+
+\section{Wrapping Up}
+
+Now that you've installed Terraform and written your first configuration, you're ready to use Terraform to automate the creation and management of your infrastructure. In the following chapters, we will delve deeper into more advanced Terraform concepts, including working with state files, organizing configurations, and scaling your infrastructure.
+
+With Terraform, you've taken the first step towards automating infrastructure management with clarity and purpose.
+
+\vspace{1em}
+
+\textit{In the next chapter, we'll explore the essence of Terraform configuration, diving into the core principles and best practices that will help you create efficient and maintainable infrastructure setups.}
